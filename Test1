@@ -1,0 +1,53 @@
+# Geschwindigkeit
+v = 1
+# Länge der Förderstrecke
+l_FS = 450 
+# Länge der Blockstrecke
+l_BS = 5 
+
+# Anzahl der Förderstrecken
+N_BS = l_FS/l_BS
+# Zeit für das Durchfahren einer Blockstrecke
+t_BS = l_BS/v
+# zeit für das Durchfahren der gesamten Förderstrecke
+t_FS = l_FS/v
+# Durchsatz auf der Förderstrecke
+lambda_FS = 3600*1/t_FS
+
+import matplotlib.pyplot as plt
+import numpy as np
+import PlotBibliothek #für Koordinatensysteme
+
+# Durchsatz auf einer Blockstrecke
+
+lambda_BS = 3600*(1/t_BS)
+print("lambda_BS:")
+print(lambda_BS)
+# Durchsatz auf der gesamten Förderstrecke
+lambda_BS2 = N_BS*lambda_FS
+print("Gegenprobe mit lambda_BS = N_BS*lambda_FS: ")
+print(lambda_BS2)
+
+
+#########################
+# Einführung einer maximalen Blockstreckenlänge
+########################
+print("Durchsatzmindernde Blockstrecke:")
+# Länge der maximalen Blockstrecke
+l_BSmax = 15
+# Zeit zum Durchfahren der maximalen Blockstrecke
+t_BSmax = l_BSmax/v
+# Durchsatz auf der maximalen Blockstrecke
+lambda_BSmax = 3600*1/t_BSmax
+print("Es wird lambda_BSmax erreicht:")
+print(lambda_BSmax)
+
+###########################
+# Einführung von durchsatzmindernder Zeit
+###########################
+print("Durchsatzmindernde Zeit auf maximaler Blockstrecke")
+t_0FS = 60
+lambda_BSmax_t0FS = 3600*1/(t_BSmax+t_0FS)
+print(lambda_BSmax_t0FS)
+
+
